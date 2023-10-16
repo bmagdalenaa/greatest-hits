@@ -1,0 +1,10 @@
+<h1>Top 500 albums of all times</h1>
+
+<% @albums.each do |album| %>
+  <p>
+    <%= album.album_rank %> -
+    <%= link_to album.album_name, album %>
+    <i>( <%= album.release_information %> )</i>
+     by <%= album.artist.artist_name %>
+  </p>
+<% end %>

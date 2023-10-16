@@ -1,0 +1,8 @@
+<h1><%= @artist.artist_name %></h1>
+<% @album.each do |a| %>
+  <% if a.artist_id == @artist.id %>
+    <p><%= link_to a.album_name, a %> - Rank: <%= a.album_rank %></p>
+  <% end %>
+<% end %>
+
+<p><%= link_to "Back", artists_path %></p>

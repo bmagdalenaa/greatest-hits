@@ -1,0 +1,5 @@
+<h1>Artists with albums on the Top 500</h1>
+
+<% @artists.each do |artist| %>
+  <p><%= link_to artist.artist_name, artist %></p>
+<% end %>

@@ -1,0 +1,2 @@
+class UserAccess < ApplicationRecord
+end

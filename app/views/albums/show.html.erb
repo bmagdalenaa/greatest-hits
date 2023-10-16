@@ -1,0 +1,29 @@
+<% api_key = '74744900ec10fd56fb12ece34abb3244' %>
+<% artist_name = @album.artist.artist_name %>
+<% album_name = @album.album_name %>
+<% api_url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=#{api_key}&artist=#{artist_name}&album=#{album_name}&format=json" %>
+<% response = Net::HTTP.get(URI(api_url)) %>
+<% album_info = JSON.parse(response) %>
+<% tracks = album_info['album']['tracks']['track'] %>
+<% tags = album_info['album']['tags']['tag']%>
+
+<% api_key = 'e762a20ecb2f1811323880ace3135a7a' %>
+<% base_url = 'https://api.musixmatch.com/ws/1.1/' %>
+
+<h1><%= @album.album_name %><i> ( <%= @album.release_information %> )</i></h1>
+<h2><%= @album.artist.artist_name %></h2>
+
+<div class="d-grid gap-2 d-md-block">
+  <% tags.each do |tag| %>
+    <button type="button" class="btn btn-outline-primary" disabled><%= tag['name']%></button>
+  <% end %>
+</div>
+
+<p><%= @album.album_description %></p>
+
+<h2>Songs:</h2>
+<% tracks.each_with_index do |track, index| %>
+  <p><b><%= index + 1 %>. <%= link_to track['name'], lyrics_path %></b></p>
+<% end %>
+
+<p><%= link_to "Back", albums_path %></p>
