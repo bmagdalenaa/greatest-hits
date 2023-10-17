@@ -19,11 +19,14 @@
   <% end %>
 </div>
 
-<p><%= @album.album_description %></p>
-
-<h2>Songs:</h2>
+<h3>Songs:</h3>
+<%# point to the new route and pass params %>
 <% tracks.each_with_index do |track, index| %>
-  <p><b><%= index + 1 %>. <%= link_to track['name'], lyrics_path %></b></p>
+  <p><b><%= index + 1 %>. <%= link_to track['name'], song_lyrics_path(artist: @album.artist.artist_name, song: track['name']) %></b></p>
 <% end %>
+
+<hr>
+<h3>About the album:</h3>
+<p><%= @album.album_description %></p>
 
 <p><%= link_to "Back", albums_path %></p>

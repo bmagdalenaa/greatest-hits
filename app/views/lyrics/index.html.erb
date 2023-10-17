@@ -1,3 +1,9 @@
-<h1>Lyrics Page</h1>
-<p>This is the lyrics page.</p>
+<h2>Lyrics for: <%= @song_name %></h2>
+<h3>Artist: <%= @artist_name %></h3>
+<% if @lyrics.present? %>
+  <pre><%= @lyrics %></pre>
+<% else %>
+  <p><%= @error_message %></p>
+<% end %>
+
 <p><%= link_to "Home", root_path %></p>

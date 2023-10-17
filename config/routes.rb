@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :lyrics, only: %i[index show]
   resources :genres, only: %i[index show]
   resources :about, only: %i[index show]
+
+  # gets the song lyrics
+  get 'songs/:id/lyrics', to: 'songs#lyrics', as: 'song_lyrics'
 end
