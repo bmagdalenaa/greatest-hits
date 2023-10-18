@@ -1,7 +1,48 @@
-<h1>Home Page</h1>
+<header class="bg-dark py-3">
+  <div class="container px-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center my-5">
+          <h1 class="display-5 fw-bolder text-white mb-2">THE 500 GREATEST ALBUMS OF ALL TIME</h1>
+          <p class="lead text-white-50 mb-4">Rolling Stone’s list of the 500 Greatest Albums of All Time was originally published in 2003, with a
+          slight update in 2012. Over the years, it’s been the most widely read  — and argued over — feature in the history of the magazine
+          (last year, the RS 500 got over 63 million views on the site). But no list is definitive — tastes change, new genres emerge, the
+          history of music keeps being rewritten. Read more about this on the official Rolling Stones website or click on <i>View Full List</i>.</p>
+          <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a class="btn btn-outline-light my-2" href="https://www.rollingstone.com/music/music-lists/best-albums-of-all-time-1062063/arcade-fire-%ef%bb%bffuneral-1062733/" class="btn btn-dark my-2">Read More</a>
+            <%= link_to "View Full List", albums_path, class: "btn btn-primary my-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container mt-3 mb-4">
+  <h3 class="fw-bold">Top 10 albums of 2023</h3>
+  <div class="table-responsive mb-0 bg-white p-4 shadow-sm">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th class="justify-content-start">Album</th>
+          <th class="mb-0 d-flex justify-content-end">Artist</th>
+        </tr>
+      </thead>
+      <% @albuns.each_with_index do |album, index| %>
+        <tbody>
+          <tr>
+            <td><h2><%= index + 1 %></h2></td>
+            <td class="justify-content-start"><span class="order-1"><%= link_to album.album_name, album %></span></td>
+            <td><li class="list-unstyled mb-0 d-flex justify-content-end"><%= album.artist.artist_name %></li></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
 
-<h2>Top 10 albums of all time</h2>
+<!--<h2>Top 10 albums of 2023</h2>
 <% @albuns.each do |album| %>
   <p><%= link_to album.album_name, album %> by <%= album.artist.artist_name %></p>
 <% end %>
-<p><%= link_to "See all", albums_path%></p>
+<p><%= link_to "See all", albums_path%></p> -->
