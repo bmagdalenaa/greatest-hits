@@ -12,23 +12,30 @@
 <% api_key = 'e762a20ecb2f1811323880ace3135a7a' %>
 <% base_url = 'https://api.musixmatch.com/ws/1.1/' %>
 
-<h1><%= @album.album_name %><i> ( <%= @album.release_information %> )</i></h1>
-<h2><%= @album.artist.artist_name %></h2>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="display-5"><%= @album.album_name %><i> ( <%= @album.release_information %> )</i></h1>
+      <h2 class="h5"><%= @album.artist.artist_name %></h2>
 
-<div class="d-grid gap-2 d-md-block">
-  <% tags.each do |tag| %>
-    <button type="button" class="btn btn-outline-primary" disabled><%= tag['name']%></button>
-  <% end %>
+      <div class="mt-3">
+        <% tags.each do |tag| %>
+          <span class="badge bg-primary me-2 p-2"><%= tag['name'] %></span>
+        <% end %>
+      </div>
+
+      <h3 class="mt-4">Songs:</h3>
+      <% tracks.each_with_index do |track, index| %>
+        <p><b><%= index + 1 %>. <%= link_to track['name'], song_lyrics_path(artist: @album.artist.artist_name, song: track['name']) %></b></p>
+      <% end %>
+    </div>
+
+    <hr class="my-4">
+    <h3 class="mt-4">About the album:</h3>
+    <p><%= @album.album_description %></p>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "Back to albums", albums_path, class: "btn btn-outline-primary" %>
+  </div>
 </div>
-
-<h3>Songs:</h3>
-<%# point to the new route and pass params %>
-<% tracks.each_with_index do |track, index| %>
-  <p><b><%= index + 1 %>. <%= link_to track['name'], song_lyrics_path(artist: @album.artist.artist_name, song: track['name']) %></b></p>
-<% end %>
-
-<hr>
-<h3>About the album:</h3>
-<p><%= @album.album_description %></p>
-
-<p><%= link_to "Back to albums...", albums_path %></p>
