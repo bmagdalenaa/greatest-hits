@@ -1,3 +1,5 @@
+<%= content_for(:html_title){@album.album_name + " - " + @album.artist.artist_name}%>
+
 <% api_key = '74744900ec10fd56fb12ece34abb3244' %>
 <% artist_name = @album.artist.artist_name %>
 <% album_name = @album.album_name %>
