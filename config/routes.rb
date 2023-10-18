@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
+  # search for artists
+  resources :artists, only: %i[index show] do
+    collection do
+      get "search"
+    end
+  end
+
   resources :artists, only: %i[index show]
   resources :albums, only: %i[index show]
   resources :songs, only: %i[index show]
