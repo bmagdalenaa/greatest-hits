@@ -1,0 +1,8 @@
+<p>
+  Artists found when search for: <%= params[:keywords] %>
+</p>
+<ul>
+  <% @artists.each do |artist| %>
+    <li><%= link_to artist.artist_name, artist %></li>
+  <% end %>
+</ul>
