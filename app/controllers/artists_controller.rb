@@ -10,8 +10,9 @@ class ArtistsController < ApplicationController
   end
 
   def search
-    wildcard_search = "%#{params[:keywords]}%"
-    @artists = Artist.where("artist_name LIKE ?", wildcard_search)
-    @albuns = Album.where("album_name LIKE ?", wildcard_search)
+    @wildcard_search = "%#{params[:keywords]}%"
+    @selection = params[:selection]
+    @artists = Artist.where("artist_name LIKE ?", @wildcard_search)
+    @albums = Album.where("album_name LIKE ?", @wildcard_search)
   end
 end

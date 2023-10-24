@@ -8,17 +8,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Artists", artists_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item"><%= link_to "Albums", albums_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "About", about_index_path, class: "nav-link" %></li>
+        <% if controller_name != "home"%>
+          <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+        <% end %>
+        <% if controller_name != "artists"%>
+          <li class="nav-item"><%= link_to "Artists", artists_path, class: "nav-link" %></li>
+        <% end %>
+        <% if controller_name != "albums"%>
+          <li class="nav-item"><%= link_to "Albums", albums_path, class: "nav-link" %></li>
+        <% end %>
+        <% if controller_name != "about"%>
+          <li class="nav-item"><%= link_to "About", about_index_path, class: "nav-link" %></li>
+        <% end %>
       </ul>
       <%= form_with(url:search_artists_path, method: :get, local: true) do %>
-        <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search for Artists') %>
+        <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search') %>
+        <%= radio_button_tag(:selection, "artists") %>
+        <%= label_tag(:selection_artists, "Artists") %>
+        <%= radio_button_tag(:selection, "albums") %>
+        <%= label_tag(:selection_albums, "Albums") %>
         <%= submit_tag("Search", class: "button is primary") %>
       <% end %>
     </div>
