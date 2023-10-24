@@ -1,19 +1,16 @@
 <ul>
-  <% if params[:selection] == "artists"%>
-    <p>
-      Artists found when searching for: <%= params[:keywords] %>
-    </p>
+  <% if @selection == "1" %>
+    <p>Artists found when searching for: <%= params[:keywords] %></p>
     <% @artists.each do |artist| %>
       <li><%= link_to artist.artist_name, artist %></li>
     <% end %>
-  <% elsif params[:selection] == "albums" %>
-    <p>
-      Albums found when searching for: <%= params[:keywords] %>
-    </p>
+  <% elsif @selection == "2" %>
+    <p>Albums found when searching for: <%= params[:keywords] %> </p>
     <% @albums.each do |album| %>
       <li><%= link_to album.album_name, album %></li>
     <% end %>
   <% else %>
+    <p>Results found when searching for: <%= params[:keywords] %></p>
     <% @artists.each do |artist| %>
       <li><%= link_to artist.artist_name, artist %></li>
     <% end %>
