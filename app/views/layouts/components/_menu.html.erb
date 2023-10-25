@@ -23,7 +23,7 @@
       </ul>
       <%= form_with(url:search_artists_path, method: :get, local: true) do %>
         <%= text_field_tag(:keywords, nil, class: "input", placeholder: 'Search') %>
-        <%= select_tag(:selection, options_for_select([["Artists", 1],["Albums", 2]]), include_blank: true) %>
+        <%= select_tag(:selection, options_for_select(Artist.all.collect { |a| [a.artist_name, a.id] }), include_blank: true) %>
         <%= submit_tag("Search", class: "button is primary") %>
       <% end %>
     </div>
