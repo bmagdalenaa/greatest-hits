@@ -7,6 +7,7 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @album = Album.all.where("artist_id" == @artist)
+    @artists = Artist.paginate(page: params[:page], per_page: 10)
   end
 
   def search
