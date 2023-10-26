@@ -1,7 +1,13 @@
-<h2>Lyrics for: <%= @song_name %></h2>
-<h3>Artist: <%= @artist_name %></h3>
-<% if @lyrics.present? %>
-  <pre><%= @lyrics %></pre>
-<% else %>
-  <p><%= @error_message %></p>
-<% end %>
+<div class="container mt-3 mb-4">
+  <h3 class="fw-bold">Lyrics for: <%= @song_name %></h3>
+  <h4>Artist: <%= @artist_name %></h4>
+  <% if @lyrics.present? %>
+    <pre><%= @lyrics %></pre>
+  <% else %>
+    <p class="text-danger text-center"><%= @error_message %></p>
+  <% end %>
+
+  <div class="mt-4">
+    <%= link_to "Back to albums", albums_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>

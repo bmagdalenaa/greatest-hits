@@ -1,9 +1,5 @@
 class ArtistsController < ApplicationController
   def index
-    # @artists = Artist.all.order("artist_name ASC")
-    # @albums = Album.all
-    # @all_artists = Artist.all.order("artist_name ASC")
-    # @artists = @all_artists.paginate(page: params[:page], per_page: 10)
     @artists = Artist.all.order("artist_name ASC")
     @albums = Album.all
     @artists = @artists.paginate(page: params[:page], per_page: 10)

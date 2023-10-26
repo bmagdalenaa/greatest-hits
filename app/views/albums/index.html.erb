@@ -1,10 +1,23 @@
-<h1>Top 500 albums of all times</h1>
-
-<% @albums.each do |album| %>
-  <p>
-    <%= album.album_rank %> -
-    <%= link_to album.album_name, album %>
-    <i>( <%= album.release_information %> )</i>
-     by <%= album.artist.artist_name %>
-  </p>
-<% end %>
+<div class="container mt-3 mb-4">
+  <h3 class="fw-bold">Top 500 albums of all times</h3>
+  <div class="table-responsive mb-0 bg-white p-4 shadow-sm">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th class="justify-content-start">Album</th>
+          <th class="mb-0 d-flex justify-content-end">Artist</th>
+        </tr>
+      </thead>
+      <% @albums.each_with_index do |album, index| %>
+        <tbody>
+          <tr>
+            <td><h2><%= album.album_rank %></h2></td>
+            <td class="justify-content-start"><span class="order-1"><%= link_to album.album_name, album %></span></td>
+            <td><li class="list-unstyled mb-0 d-flex justify-content-end"><%= album.artist.artist_name %></li></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

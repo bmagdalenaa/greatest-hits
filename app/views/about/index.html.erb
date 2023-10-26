@@ -1,18 +1,32 @@
-<h1>About us</h1>
-<h2>Team Beleo's Intro to Rails project</h2>
-<p>
-  Our project brings a webpage where the user is able to look
-  for the 500 Greatest Albums of All Time.
-  The user can select any of those albums to check for their songs and album information,
-  search for artists and even see the lyrics for those songs.
-  Providing an easy navigation, our team hopes that you
-  have fun when browsing through it.
-</p>
-<p>Data source and APIs used on this project:</p>
-<ul>
-  <li><a href="https://gist.github.com/hasmanyguitars/232302a4ba29fd8f5f0d0352ef55d2b9"><strong>CSV – The 500 Greatest Albums of All Time - Rolling Stone - 2020:</strong></a> Contains information about the 500 greatest albums of all time according to Rolling Stone's 2020 list.</li>
-  <li><a href="https://www.last.fm/api"><strong>Last.fm API (for getting songs from albums):</strong></a> The Last.fm API is used to retrieve a list of songs from specific albums.</li>
-  <li><a href="https://developer.musixmatch.com"><strong>Musixmatch API (for getting lyrics for specified songs):</strong></a> The Musixmatch API provides lyrics for specific songs.</li>
-</ul>
-<p>Our database ERD</p>
-<%= image_tag 'beleo.drawio.png', alt: 'Database ERD', class: "navbar-brand", style: "max-height: 350px;" %>
+<div class="container mt-3 mb-4">
+  <h3 class="fw-bold">About us</h2>
+  <h4>Team Beleo's Intro to Rails project</h4>
+  <p>
+    Our project brings a webpage where the user is able to look
+    for the 500 Greatest Albums of All Time.
+    The user can select any of those albums to check for their songs and album information,
+    search for artists and even see the lyrics for those songs.
+    Providing an easy navigation, our team hopes that you
+    have fun when browsing through it.
+  </p>
+  <p class="mt-4">Data source and APIs used on this project:</p>
+  <ul>
+    <li>
+      <a href="https://gist.github.com/hasmanyguitars/232302a4ba29fd8f5f0d0352ef55d2b9">
+        <strong>CSV – The 500 Greatest Albums of All Time - Rolling Stone - 2020:</strong>
+      </a> Contains information about the 500 greatest albums of all time according to Rolling Stone's 2020 list.
+    </li>
+    <li>
+      <a href="https://www.last.fm/api">
+        <strong>Last.fm API (for getting songs from albums):</strong>
+      </a> The Last.fm API is used to retrieve a list of songs from specific albums.
+    </li>
+    <li>
+      <a href="https://developer.musixmatch.com">
+        <strong>Musixmatch API (for getting lyrics for specified songs):</strong>
+      </a> The Musixmatch API provides lyrics for specific songs.
+    </li>
+  </ul>
+  <p class="mt-4">Our database ERD</p>
+  <%= image_tag 'beleo.drawio.png', alt: 'Database ERD', class: "img-fluid rounded", style: "max-height: 350px;" %>
+</div>
