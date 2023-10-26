@@ -1,13 +1,18 @@
 class ArtistsController < ApplicationController
   def index
+    # @artists = Artist.all.order("artist_name ASC")
+    # @albums = Album.all
+    # @all_artists = Artist.all.order("artist_name ASC")
+    # @artists = @all_artists.paginate(page: params[:page], per_page: 10)
     @artists = Artist.all.order("artist_name ASC")
     @albums = Album.all
+    @artists = @artists.paginate(page: params[:page], per_page: 10)
+
   end
 
   def show
     @artist = Artist.find(params[:id])
     @album = Album.all.where("artist_id" == @artist)
-    @artists = Artist.paginate(page: params[:page], per_page: 10)
   end
 
   def search
