@@ -4,7 +4,7 @@
     <% @artists.each do |artist| %>
       <li class="list-group-item">
         <a href="<%= artist_path(artist) %>" class="list-group-item-action">
-          <%= link_to artist.artist_name, artist %>
+          <%= artist.artist_name %>
         </a>
       </li>
     <% end %>

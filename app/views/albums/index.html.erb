@@ -14,7 +14,7 @@
           <tr>
             <td><h2><%= album.album_rank %></h2></td>
             <td class="justify-content-start"><span class="order-1"><%= link_to album.album_name, album %></span></td>
-            <td><li class="list-unstyled mb-0 d-flex justify-content-end"><%= album.artist.artist_name %></li></td>
+            <td><ul><li class="list-unstyled mb-0 d-flex justify-content-end"><%= album.artist.artist_name %></li></ul></td>
           </tr>
         </tbody>
       <% end %>
